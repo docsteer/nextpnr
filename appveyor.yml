@@ -44,9 +44,12 @@ install:
   # https://www.appveyor.com/docs/build-environment/#qt
   - set QTDIR=C:\Qt\%QT_Ver%\msvc2017
   - set PATH=%PATH%;%QTDIR%\bin
+  
+  # Boost Libs
+  - set BOOST_ROOT=C:\Libraries\boost_1_69_0
 
   # Required packages
-  - vcpkg install boost-filesystem boost-program-options boost-thread boost-python eigen3
+  - vcpkg install eigen3
   
 
 build_script:
