@@ -53,9 +53,11 @@ install:
   
 #-DICEBOX_ROOT=C:/ProgramData/icestorm/share/icebox -DCMAKE_TOOLCHAIN_FILE=C:/vcpkg/scripts/buildsystems/vcpkg.cmake -DVCPKG_TARGET_TRIPLET=x86-windows -G "Visual Studio 15 2017" -DPYTHON_EXECUTABLE=C:/Python364/python.exe -DPYTHON_LIBRARY=C:/vcpkg/packages/python3_x64-windows/lib/python36.lib -DPYTHON_INCLUDE_DIR=C:/vcpkg/packages/python3_x64-windows/include/python3.6
 build_script:
-  - cmake -DARCH=ice40 -G "Visual Studio 15 2017" -DPYTHON_EXECUTABLE=C:/Python36/python.exe
-  - cmake --build . --config Release
+  - cmake -DARCH=ice40 -G "Visual Studio 15 2017" -DCMAKE_TOOLCHAIN_FILE=C:\vcpkg\scripts\buildsystems\vcpkg.cmake -DPYTHON_EXECUTABLE=C:/Python36/python.exe --build .
 
 artifacts:
   - path: install\win\*.exe
   - path: app\*.pdb
+
+on_finish:
+  - ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
