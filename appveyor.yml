@@ -46,7 +46,7 @@ install:
   - set PATH=%PATH%;%QTDIR%\bin
 
   # Required packages
-  - vcpkg install boost-filesystem boost-program-options boost-thread boost-python qt5-base eigen3
+  - vcpkg install boost-filesystem boost-program-options boost-thread boost-python eigen3
   
 
 build_script:
