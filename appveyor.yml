@@ -51,6 +51,7 @@ install:
   
   # Boost Libs
   - set BOOST_ROOT=C:\Libraries\boost_1_69_0
+  - set BOOST_LIBRARYDIR=%BOOST_ROOT%\lib32-msvc-14.1
 
   # Python
   - set PYTHONDIR=C:\Python37
