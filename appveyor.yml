@@ -57,7 +57,7 @@ install:
 
   # Icestorm tools
   - appveyor Start-FileDownload %Icestorm_Release% -FileName icestorm.tar.gz
-  - 7z e icestorm.tar.gz -o C:\projects\icestorm
+  - 7z x icestorm.tar.gz -oC:\projects\icestorm
   - set ICESTORM=C:\projects\icestorm
 
   # Required packages
