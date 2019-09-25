@@ -53,7 +53,11 @@ install:
   - set BOOST_ROOT=C:\Libraries\boost_1_69_0
 
   # Python
-  - set PATH=%PATH%;C:\Python36
+  - set PYTHONDIR=C:\Python36
+  - set PATH=%PATH%;%PYTHONDIR%
+  - set PYTHON_LIBRARY=%PYTHONDIR%\libs\libpython37.a
+  - set PYTHON_INCLUDE_DIR=%PYTHONDIR%\include
+  - set PYTHON_EXECUTABLE=%PYTHONDIR%\python.exe
 
   # Icestorm tools
   - curl -fLv -o icestorm.tar.gz %Icestorm_Release%
@@ -65,7 +69,7 @@ install:
   - set Eigen3_DIR=C:\tools\vcpkg\installed\x86-windows\share\eigen3
   
 build_script:
-  - cmake -DARCH=%FPGA_Arch% -G "Visual Studio 15 2017" -DICEBOX_ROOT=%ICESTORM%\share\icebox .
+  - cmake -DARCH=%FPGA_Arch% -G "Visual Studio 15 2017" -DICEBOX_ROOT=%ICESTORM%\share\icebox -DPYTHON_LIBRARY=%PYTHON_LIBRARY% -DPYTHON_INCLUDE_DIR=%PYTHON_INCLUDE_DIR% -DPYTHON_EXECUTABLE=%PYTHON_EXECUTABLE% .
   - msbuild /p:Configuration=Release /p:Platform=Win32 nextpnr.sln
 artifacts:
   - path: install\win\*.exe
