@@ -53,7 +53,7 @@ install:
   - set BOOST_ROOT=C:\Libraries\boost_1_69_0
 
   # Python
-  - set PYTHONDIR=C:\Python36
+  - set PYTHONDIR=C:\Python37
   - set PATH=%PATH%;%PYTHONDIR%
   - set PYTHON_LIBRARY=%PYTHONDIR%\libs\libpython37.a
   - set PYTHON_INCLUDE_DIR=%PYTHONDIR%\include
