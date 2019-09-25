@@ -56,7 +56,7 @@ install:
   - set PATH=%PATH%;C:\Python36
 
   # Icestorm tools
-  - appveyor Start-FileDownload %Icestorm_Release% -FileName icestorm.tar.gz
+  - ps:Start-FileDownload %Icestorm_Release% -FileName icestorm.tar.gz
   - 7z x icestorm.tar.gz -oC:\projects\icestorm
   - set ICESTORM=C:\projects\icestorm
 
